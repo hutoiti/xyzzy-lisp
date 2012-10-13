@@ -3,6 +3,7 @@
   (interactive)
   (if var-vi ;èâÇﬂÇÕtrueÇæÇ¡ÇΩÇ∆Ç´
       (progn
+	(psearch-delete-attributes)
 	(undefine-key *global-keymap* #\h )
 	(undefine-key *global-keymap* #\j )
 	(undefine-key *global-keymap* #\l )
@@ -100,6 +101,11 @@
       (dolist (x (buffer-list)) (set-buffer-colors #(#xFFFFFF #x280a0a #x515100 #xc0c0c0 #xff0000 #xffff00 #xff00ff #xff #xff8000 #x2fffff #xffff00 #x280a0a) x))
       )
     ))
+(add-hook 'ed::*activate-hook*
+	  #'(lambda ()
+	      (if *fullscreen-mode-p*
+		  (win-user:move-hindrance-cursor-window-lt)
+		(win-user:move-cursor-window-lt))))
 (undefine-key *global-keymap* '(#\C-c #\C-c))
 (global-set-key '(#\C-c #\c) 'vi)
 (global-set-key '(#\C-c #\C-c) 'vi)

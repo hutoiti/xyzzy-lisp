@@ -1,0 +1,15 @@
+(defun own-split-window ()
+  (interactive)
+  (if
+      (= 1 (count-windows nil))
+      (progn
+	(let
+	    ((resize) (current-window-lines (ceiling (/ (window-lines) 2))))
+	(switch-to-buffer-other-window (other-buffer))
+	(setq resize (- current-window-lines (buffer-lines)));‚Ç‚ê‚­‚ç‚¢¬‚³‚­‚·‚é‚©
+	(if (> resize 0)
+	    (enlarge-window (* -1  (- resize 1)))
+	  )))
+    (my-split-window)
+    )
+  )
