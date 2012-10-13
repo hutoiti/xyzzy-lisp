@@ -1,7 +1,7 @@
 (setq var-vi nil)
 (defun vi()
   (interactive)
-  (if var-vi ;‰‚ß‚Ítrue‚¾‚Á‚½‚Æ‚«
+  (if var-vi ;ï¿½ï¿½ï¿½ß‚ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½
       (progn
 	(undefine-key *global-keymap* #\h )
 	(undefine-key *global-keymap* #\j )
